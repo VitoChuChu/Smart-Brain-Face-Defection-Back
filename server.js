@@ -35,6 +35,9 @@ app.get("/profile/:id", (req, res) => handleprofile(req, res, db));
 app.put("/image", (req, res) => handleImage(req, res, db));
 app.post("/imageUrl", (req, res) => handleAPICall(req, res));
 
-app.listen(3000, () => {
-  console.log("Server is working on port 3000.");
+const DATABASE_URL = process.env.DATABASE_URL;
+app.listen(DATABASE_URL, () => {
+  console.log(`Server is working on port ${DATABASE_URL}`);
 });
+
+console.log(DATABASE_URL);
